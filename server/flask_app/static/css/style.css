@@ -1,0 +1,173 @@
+/* CSS Reset*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* General Formatting */
+.container {
+  display: grid;
+  gap: 10px;
+  font-family: "Varela Round",sans-serif;
+  margin: 0 auto;
+}
+.form-container {
+  background-color: lightgray;
+}
+.flash-message {
+  background-color: rgb(255, 141, 141);
+  color: rgb(66, 1, 1);
+}
+.btn {
+  width: 100px;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+h1 {
+  font-weight: bolder;
+}
+
+/* Login & Registration */
+.grid-container-index {
+  column-gap: 50px;
+  grid-template-areas:
+    "A A"
+    "D D"
+    "B C"
+    "B C"
+}
+.site-name {
+  grid-area: A;
+  color: #8e00ff;
+}
+.registration {
+  grid-area: B;
+}
+.login {
+  grid-area: C;
+}
+.user-warning {
+  grid-area: D;
+}
+.grid-container-index input {
+  margin-bottom: 15px;
+}
+.grid-container-index label {
+  margin-bottom: 5px;
+  margin-left: -8px;
+}
+
+/* Recipe Dashboard */
+.grid-container-recipes {
+  grid-template-areas: 
+    "A A A A A A A"
+    "B B B B B C D"
+    "E E E E E E E"
+}
+.dashboard-greeting {
+  grid-area: A;
+}
+.dashboard-name {
+  grid-area: B;
+}
+.create-link {
+  grid-area: C;
+}
+.logout-link {
+  grid-area: D;
+}
+.dashboard {
+  grid-area: E;
+}
+.recipe-links {
+  margin: 5px;
+}
+
+/* Single Recipe Card */
+.grid-container-show-recipe {
+  align-items: center;
+  grid-template-areas: 
+    "A A A A A B B C"
+    "D D D D D E E E"
+    "F F F F F F F F"
+}
+.card-greeting {
+  grid-area: A;
+}
+.card-name {
+  grid-area: D;
+}
+.return-card-link {
+  grid-area: B;
+}
+.logout-card-link {
+  grid-area: C;
+}
+.card-author {
+  grid-area: E;
+  margin-bottom: -10px;
+}
+.recipe-card {
+  grid-area: F;
+  border: 3px solid black;
+  padding: 20px;
+}
+.recipe-card th {
+  width: 200px;
+}
+
+/* New Recipe & Edit Recipe Form */
+.grid-container-recipe {
+  align-items: center;
+  grid-template-areas:
+    "A A A A A B B C"
+    "D D D D D D D D"
+    "E E E E E E E E"
+}
+.form-title {
+  grid-area: A;
+}
+.return-form-link {
+  grid-area: B;
+}
+.logout-form-link {
+  grid-area: C;
+}
+.recipe-warning {
+  grid-area: D;
+  width: 340px;
+}
+.recipe-form {
+  grid-area: E;
+  display: grid;
+  gap: 20px 100px;
+  grid-template-areas:
+    "D D D E"
+    "F F F E"
+    "F F F G"
+    "H H H G"
+    "H H H I"
+}
+.recipe-name {
+  grid-area: D;
+}
+.recipe-date {
+  grid-area: E;
+  width: 155px;
+}
+.recipe-description {
+  grid-area: F;
+}
+.recipe-time {
+  grid-area: G;
+}
+.recipe-instructions {
+  grid-area: H;
+}
+.recipe-submit {
+  grid-area: I;
+}
+.form-check-input {
+  margin-right: 5px;
+  margin-left: 15px;
+}

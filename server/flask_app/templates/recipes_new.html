@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Share</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css'
+        integrity='sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi'
+        rel='stylesheet' crossorigin='anonymous'>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Varela+Round'>
+</head>
+<body>
+    <div class="container p-3 grid-container-recipe">
+        <h1 class="form-title">Add a New Recipe!</h1>
+        <a class="return-form-link text-end fs-5" href="/recipes">Back to Recipes</a>
+        <a class="logout-form-link text-end fs-5" href="/logout">Logout</a>
+        <div class="recipe-warning">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="flash-message rounded p-2 mb-2">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+        <form action="/new_recipe" method="post" class="form-container recipe-form rounded p-4">
+            <input type="hidden" name="user_id" value="{{ user_id }}">
+            <div class="form-group recipe-name">
+                <label for="name">Name:</label>
+                <input required class="form-control" type="text" name="name" id="name">
+            </div>
+            <div class="form-group recipe-description">
+                <label for="description">Description:</label>
+                <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+            </div>
+            <div class="form-group recipe-instructions">
+                <label for="instructions">Instructions:</label>
+                <textarea class="form-control" name="instructions" id="instructions" rows="3"></textarea>
+            </div>
+            <div class="form-group recipe-date">
+                <label for="date_made">Date Cooked/Made:</label>
+                <input required class="form-control" type="date" name="date_made" id="date_made">
+            </div>
+            <div class="form-group recipe-time">
+                <p>Under 30 minutes?</p>
+                    <label class="form-check-label">
+                        <input required class="form-check-input" type="radio" name="under_30_min" value="Yes">Yes
+                    </label>
+                    <label class="form-check-label">
+                        <input required class="form-check-input" type="radio" name="under_30_min" value="No">No
+                    </label>
+            </div>
+            <input class="form-control bg-success text-light btn recipe-submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
